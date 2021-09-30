@@ -1,0 +1,22 @@
+spring:
+  kafka:
+    client-id: "vivanchenko-spring-boot-test-app"
+    bootstrap-servers: "localhost:49093"
+    listener:
+      missing-topics-fatal: true
+      concurrency: 2
+    consumer:
+      group-id: "vivanchenko-example-group"
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    security:
+      protocol: SSL
+    jaas:
+      enabled: false
+
+    streams:
+      application-id: vivanchenko-streams-app
+    properties:

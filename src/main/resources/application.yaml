@@ -1,0 +1,28 @@
+spring:
+  kafka:
+    client-id: "vivanchenko-spring-boot-test-app"
+    admin:
+      client-id: "vivanchenko-admin-spring-boot-test-app"
+    bootstrap-servers: "broker-3-mn67lzkhbk14n6qc.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-1-mn67lzkhbk14n6qc.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-2-mn67lzkhbk14n6qc.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-0-mn67lzkhbk14n6qc.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-4-mn67lzkhbk14n6qc.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093,broker-5-mn67lzkhbk14n6qc.kafka.svc08.us-south.eventstreams.cloud.ibm.com:9093"
+    listener:
+      missing-topics-fatal: true
+      concurrency: 2
+    consumer:
+      group-id: "vivanchenko-example-group"
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    security:
+      protocol: SASL_SSL
+    ssl:
+      protocol: TLSv1.2
+    jaas:
+      enabled: true
+      login-module: org.apache.kafka.common.security.plain.PlainLoginModule
+      options:
+        username: token
+        password: "0_gIouiDf6af-Qr1kIaMQFbUWakeMT7YlyrMhfdR10re"
+    properties:
+      sasl.mechanism: PLAIN
